@@ -1,0 +1,23 @@
+### Make external monitor default ###
+
+####For LightDM ####
+
+Create a file, `/etc/lightdm/lightdm.conf.d/90_external-monitor.conf`
+and enter following lines:
+
+        [SeatDefaults]
+        display-setup-script=xrandr --output HDMI-1 --primary
+
+After this, either restart system or execute one of the following commands,
+
+        sudo service lightdm restart
+or
+        sudo systemctl restart lightdm.service
+
+####For Bootup Process ####
+
+Add following to GRUB default configuration file (/etc/default/grub).
+
+        GRUB_CMDLINE_LINUX="video=HDMI-1:e"
+
+where, "HDMI-1" is the external monitor as identified by `xrandr -q` command.
