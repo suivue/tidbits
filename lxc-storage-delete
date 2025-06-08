@@ -1,0 +1,15 @@
+How to delete default storage pool in lxc:
+(Answered by:Stephen Bancroft,
+https://stackoverflow.com/questions/42678979/how-to-remove-default-lxd-storage)
+
+The default storage cannot be deleted because it is part of the default
+profile. The default profile cannot be removed. So the way around this is
+to push a blank profile to the default profile with;
+
+    printf 'config: {}\ndevices: {}' | lxc profile edit default
+
+Then the default storage will be removed from the default profile, so you
+will now be able to remove the default storage with;
+
+    lxc storage delete default
+

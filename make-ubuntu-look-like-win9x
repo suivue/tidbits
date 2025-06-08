@@ -1,0 +1,21 @@
+Make Ubuntu look like Win 9x:
+1) Install LXDE package
+2) In 'Customize Look and Feel' (lxappearance package with openbox integration),
+  on 'Widget' tab, choose either 'Raleigh' or 'Redmond'. 'Mist' is also a good
+  alternative.
+3) I had to make some changes to `lxpanel` as the panel was not changing with
+  the system theme but was staying glossy black. Right-click on lxpanel, select
+  'Panel Preferences', navigate to 'Appearance'. Select 'System theme' instead
+  of 'Image'. Uncheck 'Custom color' otherwise clock will be showing in white
+  color.
+4) I chose 'Tango' icon as I was not keen on 'pure' windows styling. But for
+  those who want a 'Classic 95' icon pack is available online. May be others
+  similar.
+5) For title bar colors (openbox theme actually), search on box-look.org for
+  'Windows Classic' or 'Redmond3x'. 'Windows Classic' is more natural than the
+  later.
+  
+That's all. I have a classic desktop look. We can use either 'Noto Sans 9' or
+'Droid Sans 9' to mimic 'Tahoma 9'.
+
+ 

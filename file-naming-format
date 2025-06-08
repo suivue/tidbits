@@ -1,0 +1,7 @@
+Image naming format:
+a) [dir]_[date:"yyyyMMdd"]_###
+b) [dir]_[date]
+c) [dir]_[date:ISO]
+d) [dir]_[date:Text]
+e) [dir]_[date:"yyyyMMdd_hhmmss"]
+f) BT_[date:"yyyyMMdd_hhmmss"] where BT is event short hand Bengaluru Trip in this case.

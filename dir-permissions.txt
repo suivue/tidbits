@@ -1,0 +1,26 @@
+Directory permissions in *nix:
+
+- r (read): 
+  Can see the directory contents i.e., list the contents from outside. 
+  Can enter the directory and list. 
+  Without read permission, we cannot list the contents of the directory 
+  but if we know the filename, we can edit (and save) it as long as we 
+  have write permission.
+
+- w (write):
+  Can create a file/directory and delete a file/directory (from outside
+  as well as from within the directory meaning can enter the directory).
+  Without write permission, we cannot create or delete file/directory 
+  inside the directory. However, we can write to a file because that is 
+  governed by write permission of the file.
+
+- x (execute):
+  This is redefined for directory permissions and not carry same meaning
+  as executing/running a file. It means accessing the directory. We cannot
+  access or enter the directory. 
+  Without execute/access permission, 
+  - can list the contents if we have read permission (list followed 
+    by errors). 
+  - cannot create or delete any file inside 
+  - cannot read (opens empty) any file or write to any file even when
+    we have read/write permission to the file itself.

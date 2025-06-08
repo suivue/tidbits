@@ -1,0 +1,7 @@
+qemu-virgil -enable-kvm -m 512 \
+    -device virtio-vga,virgl=on \
+    -display sdl,gl=on \
+    -netdev user,id=ethernet.0,hostfwd=tcp::10022-:22 \
+    -device rtl8139,netdev=ethernet.0 \
+    -soundhw ac97 <imagename>.img
+

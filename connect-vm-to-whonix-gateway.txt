@@ -1,0 +1,28 @@
+# Add a new wired connection as follows on the virtual machine that needs 
+# to connect to whonix gateway.
+  IP address 10.152.152.50
+  Subnet netmask 255.255.192.0
+  Default gateway 10.152.152.10
+  Preferred DNS server 10.152.152.10
+
+# FreeBSD
+1. edit /etc/rc.conf to add single network (em0) in below example.
+  ifconfig_em0="inet 10.152.152.12 netmask 255.255.192.0"
+  defaultrouter="10.152.152.10"
+
+2. edit /etc/resolve.conf and add below line
+  nameserver 10.152.152.10
+
+3. sudo service netif restart
+
+# OpenBSD
+1. Enter above details during installation, except default gateway
+
+2. edit /etc/mygate and add following
+  10.152.152.10
+
+3. disable ntpd
+  rcctl disable ntpd
+
+4. edit /etc/hostname.xxx
+  inet <ip> netmask 255.255.192.0

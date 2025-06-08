@@ -1,0 +1,10 @@
+iptables -F
+iptables -t nat -F
+
+iptables -t nat -A POSTROUTING -o $eth -j MASQUERADE
+iptables -A FORWARD -i $eth -o $wlan -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i $wlan -o $eth -j ACCEPT
+iptables -t nat -A PREROUTING -i $wlan -p tcp --dport 22 -j REDIRECT --to-ports 22
+iptables -t nat -A PREROUTING -i $wlan -p udp --dport 53 -j REDIRECT --to-ports 53
+iptables -t nat -A PREROUTING -i $wlan -p tcp --syn -j REDIRECT --to-ports 9040
+iptables -t nat -A PREROUTING -i $wlan -p tcp --syn -j REDIRECT --to-ports 9050

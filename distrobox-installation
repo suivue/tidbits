@@ -1,0 +1,16 @@
+Distrobox Install:
+==================
+curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh
+# or using wget
+wget -qO- https://raw.githubusercontent.com/89luca89/distrobox/main/install | sudo sh
+
+# OR on a custom directory without sudo
+curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix ~/.local
+# or using wget
+wget -qO- https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix ~/.local
+
+Distrobox Uninstall:
+====================
+curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/uninstall | sudo sh
+# OR
+curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/uninstall | sh -s -- --prefix ~/.local

@@ -1,0 +1,5 @@
+# Windows 95 color
+#0A2368
+
+# Openbox Natura color (many gradients)
+#544740

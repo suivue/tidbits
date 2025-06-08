@@ -1,0 +1,10 @@
+active window color: #0077CC (bright blue, possibly Tk window color too?)
+inactive window color: #555555
+
+openSUSE elementary-geeko color: #35B3A5
+
+Mist: #5F8FC2 (soft blue)
+Gilouche: #5082B7
+Adwaita: #4A90D9
+
+

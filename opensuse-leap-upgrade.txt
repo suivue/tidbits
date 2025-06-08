@@ -1,0 +1,17 @@
+Execute following commands in sequence to upgrade openSUSE Leap versions:
+-------------------------------------------------------------------------
+Following examples show upgrade from 15.4 to 15.5. We have to adjust the
+current and next release versions accordingly.
+
+1) Backup existing repos (if something goes wrong)
+         sudo cp -rf repos.d/ repos.d.154/
+2) List repos with URI         
+         sudo zypper lr [--uri]
+3) Update URIs of each repo to new release version
+        sudo zypper --releasever=15.5 lr -u
+4) Refresh forcing to use release version 15.5
+        sudo zypper --releasever=15.5 ref
+5) Perform dist-upgrade forcing use of release version 15.5
+        sudo zypper --releasever=15.5 dup
+6) Reboot into upgraded system
+        systemctl reboot

@@ -1,0 +1,8 @@
+Python "falsy" values:
+----------------------
+- false     : boolean false statement
+- 0         : number zero
+- ""        : empty string
+- null      : how you as a developer signalize emptiness
+- undefined : how JavaScript signalizes emptiness
+- NaN       : not a number

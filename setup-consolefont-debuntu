@@ -1,0 +1,13 @@
+Setup console font on Debian and Ubuntu:
+----------------------------------------
+1. Install `console-setup` package if not already installed.
+2. Console fonts are under'/usr/share/consolefonts'. (It would be under
+  ('/usr/share/kbd/' in Arch and probably other systemd distros. We 
+  should have some under '/usr/share/fonts/misc/' as a last place.)
+3. Set font using, `setfont /usr/share/consolefonts/<fontname>.psf.gz`
+4. To make changes permanent, edit`/etc/default/console-setup` file.
+  On a systemd distro we should also be able to use `/etc/vconsole.conf`.
+5. For 'CODESET' we can input "guess". 
+6. To test execute `setupcon`. This will change font on logged in tty,
+  not others.
+7. Reboot for changes to take effect.

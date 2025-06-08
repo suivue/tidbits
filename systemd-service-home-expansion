@@ -1,0 +1,10 @@
+For systemd service file, '~' and $HOME do not expand. Had to hard code path.
+For '~', the service would fail with, 
+ /bin/sh: 0: cannot open ~/.local/bin/wallpaper_changer.sh: No such file
+And for '$HOME', the log would show the process succeded (finished) but the 
+wallpaper did not change.
+
+Worked only when the full path was given (/home/<username>/.local/bin/script.sh)
+where <username> is my logged in username.
+
+

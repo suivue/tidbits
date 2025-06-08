@@ -1,0 +1,13 @@
+# debootstrap command
+#
+debootstrap --arch=amd64 SUITE TARGETDIR MIRROR
+
+SUITE: one of the Debian/Ubuntu release code names
+       e.g., bullseye, focal, impish etc
+MIRROR: package repository URL http://httpredir.debian.org/debian
+       http://archive.ubuntu.com/ubuntu
+
+e.g., sudo debootstrap --arch=amd64 stretch \
+        /var/lib/container-example/example1 \
+        http://httpredir.debian.org/debian
+

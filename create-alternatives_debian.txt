@@ -1,0 +1,17 @@
+Command and format:
+sudo update-alternatives --install <link> <name> <path> <priority>
+where,
+<link> is the symlink pointing to /etc/alternatives/<name>.
+  (e.g. /usr/bin/pager)
+<name> is the master name for this link group.
+  (e.g. pager)
+<path> is the location of one of the alternative target files.
+  (e.g. /usr/bin/less)
+<priority> is an integer; options with higher numbers have higher priority in
+  automatic mode.
+
+e.g.
+sudo ln -s /etc/alternatives/x-www-browser /usr/bin/
+ls -l /usr/bin/x-www-browser
+sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/bin/firefox 10
+ls -l /usr/bin/x-www-browser

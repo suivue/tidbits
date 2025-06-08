@@ -1,0 +1,16 @@
+# How to release upgrade Ubuntu
+# 
+
+sudo do-release-upgrade -c
+
+# You may get error (and fix) saying,
+# There is no development version of an LTS available.
+# To upgrade to the latest non-LTS development release 
+# set Prompt=normal in /etc/update-manager/release-upgrades.
+#
+# sv@hp14-noble:~$ sudoedit /etc/update-manager/release-upgrades
+# sv@hp14-noble:~$ sudo do-release-upgrade -c
+# Checking for a new Ubuntu release
+# New release '24.10' available.
+# Run 'do-release-upgrade' to upgrade to it.
+# sv@hp14-noble:~$

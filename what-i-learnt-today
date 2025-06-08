@@ -1,0 +1,12 @@
+Aug-29
+- There is a package called 'posix_cc' in openSUSE. Suckless programs
+expect c99 and this package provides that compiler. Otherwise, we can
+also do,
+
+        CC='gcc -std=c99' make
+
+- There is an equivalent (somewhat) of 'whatprovides' in zypper, that
+goes as below.
+
+        zypper se --provides "pkgconfig(webkit2gtk-4.0)"
+

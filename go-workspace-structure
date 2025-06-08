@@ -1,0 +1,15 @@
+go (workspace)
+    -bin/
+    -src/
+        -github.com/devname/project_1/
+            .git/
+            -package_1/
+                #package_files
+            -package_2/
+                #package_files
+        -github.com/devname/project_2/
+            -package_1/
+                #package_files
+            -package_2/
+                #package_files
+    -pkg
