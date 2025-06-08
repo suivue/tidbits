@@ -1,0 +1,64 @@
+sv@tumbleweed:~> cat /etc/fstab 
+UUID=2161e014-729e-4a15-9a7a-a1b4d5462a54  /                       btrfs  defaults                      0  0
+UUID=2161e014-729e-4a15-9a7a-a1b4d5462a54  /var                    btrfs  subvol=/@/var                 0  0
+UUID=2161e014-729e-4a15-9a7a-a1b4d5462a54  /usr/local              btrfs  subvol=/@/usr/local           0  0
+UUID=2161e014-729e-4a15-9a7a-a1b4d5462a54  /srv                    btrfs  subvol=/@/srv                 0  0
+UUID=2161e014-729e-4a15-9a7a-a1b4d5462a54  /root                   btrfs  subvol=/@/root                0  0
+UUID=2161e014-729e-4a15-9a7a-a1b4d5462a54  /opt                    btrfs  subvol=/@/opt                 0  0
+UUID=2161e014-729e-4a15-9a7a-a1b4d5462a54  /home                   btrfs  subvol=/@/home                0  0
+UUID=2161e014-729e-4a15-9a7a-a1b4d5462a54  /boot/grub2/x86_64-efi  btrfs  subvol=/@/boot/grub2/x86_64-efi  0  0
+UUID=2161e014-729e-4a15-9a7a-a1b4d5462a54  /boot/grub2/i386-pc     btrfs  subvol=/@/boot/grub2/i386-pc  0  0
+LABEL=D640G                                /boot/efi               vfat   utf8                          0  2
+UUID=2161e014-729e-4a15-9a7a-a1b4d5462a54  /.snapshots             btrfs  subvol=/@/.snapshots          0  0
+LABEL=Data                                 /mnt/data               ext4   defaults,user,exec            0  0
+
+sv@tumbleweed:~> sudo btrfs subvolume list /
+[sudo] password for root: 
+ID 256 gen 4170 top level 5 path @
+ID 257 gen 4184 top level 256 path @/var
+ID 258 gen 4170 top level 256 path @/usr/local
+ID 259 gen 672 top level 256 path @/srv
+ID 260 gen 4180 top level 256 path @/root
+ID 261 gen 672 top level 256 path @/opt
+ID 262 gen 4184 top level 256 path @/home
+ID 263 gen 173 top level 256 path @/boot/grub2/x86_64-efi
+ID 264 gen 28 top level 256 path @/boot/grub2/i386-pc
+ID 265 gen 4168 top level 256 path @/.snapshots
+ID 266 gen 4184 top level 265 path @/.snapshots/1/snapshot
+ID 268 gen 177 top level 257 path @/var/lib/machines
+ID 272 gen 223 top level 265 path @/.snapshots/2/snapshot
+ID 281 gen 1955 top level 265 path @/.snapshots/11/snapshot
+ID 282 gen 2021 top level 265 path @/.snapshots/12/snapshot
+ID 283 gen 2355 top level 265 path @/.snapshots/13/snapshot
+ID 284 gen 2496 top level 265 path @/.snapshots/14/snapshot
+ID 285 gen 2591 top level 265 path @/.snapshots/15/snapshot
+ID 286 gen 2643 top level 265 path @/.snapshots/16/snapshot
+ID 287 gen 2994 top level 265 path @/.snapshots/17/snapshot
+ID 288 gen 3001 top level 265 path @/.snapshots/18/snapshot
+ID 289 gen 3373 top level 265 path @/.snapshots/19/snapshot
+ID 290 gen 3386 top level 265 path @/.snapshots/20/snapshot
+
+sv@tumbleweed:~> findmnt /
+TARGET SOURCE                              FSTYPE OPTIONS
+/      /dev/sdb6[/@/.snapshots/1/snapshot] btrfs  rw,relatime,space_cache=v2,subvolid=266,subvol=/@/.snapshots/1/snapshot
+sv@tumbleweed:~> sudo btrfs subvolume get-default /
+ID 266 gen 4185 top level 265 path @/.snapshots/1/snapshot
+
+sv@tumbleweed:~> sudo snapper list
+  # │ Type   │ Pre # │ Date                            │ User │ Used Space │ Cleanup │ Description               │ Userdata
+────┼────────┼───────┼─────────────────────────────────┼──────┼────────────┼─────────┼───────────────────────────┼──────────────
+ 0  │ single │       │                                 │ root │            │         │ current                   │
+ 1* │ single │       │ Sat 29 Jun 2024 09:09:56 AM IST │ root │ 138.73 MiB │         │ first root filesystem     │
+ 2  │ single │       │ Sat 29 Jun 2024 10:38:40 AM IST │ root │ 149.95 MiB │         │ Safe Point-1 (first boot) │
+11  │ pre    │       │ Sat 29 Jun 2024 11:27:01 PM IST │ root │ 400.00 KiB │ number  │ yast repositories         │
+12  │ post   │    11 │ Sat 29 Jun 2024 11:28:19 PM IST │ root │ 304.00 KiB │ number  │                           │
+13  │ pre    │       │ Mon 01 Jul 2024 07:23:56 AM IST │ root │   8.09 MiB │ number  │ zypp(packagekitd)         │ important=no
+14  │ post   │    13 │ Mon 01 Jul 2024 07:33:34 AM IST │ root │  46.30 MiB │ number  │                           │ important=no
+15  │ pre    │       │ Tue 02 Jul 2024 11:58:10 AM IST │ root │   7.12 MiB │ number  │ zypp(packagekitd)         │ important=yes
+16  │ post   │    15 │ Tue 02 Jul 2024 12:03:15 PM IST │ root │  43.11 MiB │ number  │                           │ important=yes
+17  │ pre    │       │ Tue 02 Jul 2024 02:55:40 PM IST │ root │ 960.00 KiB │ number  │ zypp(zypper)              │ important=no
+18  │ post   │    17 │ Tue 02 Jul 2024 02:56:14 PM IST │ root │   2.15 MiB │ number  │                           │ important=no
+19  │ pre    │       │ Tue 02 Jul 2024 04:25:50 PM IST │ root │ 256.00 KiB │ number  │ zypp(zypper)              │ important=no
+20  │ post   │    19 │ Tue 02 Jul 2024 04:28:23 PM IST │ root │   7.27 MiB │ number  │                           │ important=no
+
+sv@tumbleweed:~>  

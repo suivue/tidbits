@@ -1,0 +1,4 @@
+# To have init system inside container
+distrobox create -i ubuntu:24.04 -n noble-box --init
+# To have rootful container + init system
+distrobox create -i ubuntu:24.04 -n rootful-noble --init --root

@@ -1,0 +1,5 @@
+S - Single responsibility principle
+O - Open/closed principle (Open only for extension)
+L - Liskov substitution principle
+I - Interface segregation principle
+D - Dependency inversion principle
