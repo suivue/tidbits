@@ -1,0 +1,53 @@
+Emacs (and mostly nano and bash) keybindings:
+=============================================
+
+C-v : move to next screen
+M-v : move to previous screen (M usually does same as C but in opposite direction.)
+C-f : move forward a character at a time
+C-b : move backward a character at a time
+C-n : move to next line
+C-p : move to previous line
+M-f : move forward a word (not in nano), goes to end of word (space or punctuation)
+M-b : move backward a word (not in nano), goes to first letter of the word
+C-a : move to beginning of a line
+C-e : move to end of a line
+M-a : move to beginning of a sentence (not in nano)
+M-e : move to end of a sentence (not in nano)
+M-< : move to beginning of whole text (like gg in vim) (not in nano)
+M-> : move to end of whole text (like G in vim) (not in nano)
+C-u : prefix for numerical argument e.g., C-u 8 C-f repeats C-f 8 times. 
+	Numerical argument is also called repeat count.
+	C-u N C-u/C-v move be N lines not N screenfuls.
+C-g : cancel the command
+C-x 1 : one window (kill all other windows)
+<DEL> : delete character just before the cursor (the Backspace key)
+M-<DEL> : kill the word immediately before the cursor
+<Delete> : delete character under the cursor (the actual Delete key)
+C-d : delete the next character after the cursor (same as <Delete> key)
+M-d : delete the next word after the cursor
+C-k : kill from cursor position to end of line
+M-k : kill to end of the current sentence
+C-<SPC> : to start visual block (Ctrl-v in vim) and then C-w cuts entire selection
+C-y : yank or paste back killed text
+M-y : yank previous text in buffer (and backwards if repeated)
+C-/ : undo last action
+C-_ : undo last action (same as C-/)
+C-x u : undo last action
+C-x C-f : find (open) a file
+C-x C-s : save a document
+C-x C-b : view buffers
+C-x b : switch to a buffer (by typing its name into the minibuffer
+C-x s : save some buffer
+M-x <mode> : change emacs mode (default is 'Fundamental')
+
+asdf asdf asdf asdf
+
+NOTE: We can notice the parallel between C-f and C-b on the one hand, and 
+M-f and M-b on the other hand.  Very often Meta characters are used for 
+operations related to the units defined by language (words, sentences, 
+paragraphs), while Control characters operate on basic units that are 
+independent of what you are editing (characters, lines, etc).
+
+NOTE: 'killing' and 'deleting' are different in that, "killed" text can be 
+reinserted (at any position), whereas "deleted" things cannot be reinserted
+this way. We can however, un-delete them.

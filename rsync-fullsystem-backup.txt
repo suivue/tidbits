@@ -1,0 +1,24 @@
+Rsync command to take full system backup:
+
+    Run the following command as root to make sure that rsync can access
+all system files and preserve the ownership:
+
+# rsync -aAXHv --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / /path/to/backup
+
+    By using the -aAX set of options, the files are transferred in
+archive mode which ensures that symbolic links, devices, permissions,
+ownerships, modification times, ACLs, and extended attributes are
+preserved, assuming that the target file system supports the feature. The
+option -H preserves hard links, but uses more memory.
+
+    The --exclude option causes files that match the given patterns to be
+excluded. The directories /dev, /proc, /sys, /tmp, and /run are included
+in the above command, but the contents of those directories are excluded.
+This is because they are populated on boot, but the directories
+themselves are not created. /lost+found is filesystem-specific. The
+command above depends on brace expansion available in both the bash and
+zsh shells. When using a different shell, --exclude patterns should be
+repeated manually. Quoting the exclude patterns will avoid expansion by
+the shell, which is necessary, for example, when backing up over SSH.
+Ending the excluded paths with * ensures that the directories themselves
+are created if they do not already exist.

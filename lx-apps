@@ -1,0 +1,19 @@
+Light-weight, (mostly) desktop-agnostic programs.
+
+#### Graphical applications
+
+- Archiver: Xarchiver
+- Audio player: Audacious
+- Calculator: Galculator
+- Notepad: Leafpad (Mousepad changed to GTK-3 :( )
+- Image viewer: Gpicview 
+- Screenshot:  
+- Torrent handler:  
+- File Manager: PCManFM (of course)
+- Terminal: any actually (urxvt, xterm, lxterminal)
+- Panel: Tint2 or LxPanel
+- Window manager: Openbox
+- Appearance changer: LXappearance
+
+#### Console programs
+

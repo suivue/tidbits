@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Reboot into different/choosen OS (in this case MX Linux)
+#
+
+sudo grub-reboot 'MX 23.4 Libretto (23.4) (on /dev/sdb4)'
+sudo shutdown -r now
+
+
+# I needed this because my laptop's display has gone bad and at the time
+# I did not know how to make grub-menu appear directly on the external
+# monitor. I had hard time blindly choosing a (different) distro from the
+# list. Now that I managed to get everything (from BIOS to grub menu to
+# distro's booting on the external display, I do not have need for below
+# commands anymore. Still, it was a great help.
+#
+# Taken from Fedora discussion:
+# https://discussion.fedoraproject.org/t/grub-one-time-boot-of-a-different-entry/98693/6
+# Executing those two commands causes a reboot into mentioned OS, after which
+# the next reboot boots back to default OS.
+# Internally, sudo grub2-reboot 'Windows Boot Manager (on /dev/nvme0n1p1)'
+# does just,
+# sudo grub2-editenv /boot/grub2/grubenv \
+# 	set next_entry='Windows Boot Manager (on /dev/nvme0n1p1)'
+#
+# For Ubuntu (and derivatives), it is grub-reboot not grub2-reboot

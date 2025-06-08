@@ -1,0 +1,31 @@
+For OS
+About this <OS>
+--
+System Preferences
+App Store
+--
+Recent Items
+--
+Force Quit
+--
+Sleep
+Restart
+Shutdown
+--
+Lock Screen
+Log out User
+
+
+For applications:
+About			File	Edit	Format	View	...
+--
+Preferences
+Accounts
+--
+Services -> Development
+--
+Hide Notes
+Hide Others
+Show All
+--
+Quit Notes

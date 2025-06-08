@@ -1,0 +1,41 @@
+Importing Whonix ™ VM Templates
+
+The first step after extracting the archive is to import the supplied XML files. They serve as a description for libvirt
+archive.org
+and define the properties of the Whonix ™ VMs and the networking they should have.
+
+1. Add the virtual networks. This step only needs to be done once and not with every upgrade.
+
+If the definition of a Whonix ™ network fails because the virtual bridge "virbrX" already exists, edit the Whonix_external*.xml and Whonix_internal*.xml file and change the name to one that does not exist, for example "virbr3" (all existing bridge adapters can be listed with "sudo brctl show").
+
+sudo virsh -c qemu:///system net-define Whonix_external*.xml
+
+sudo virsh -c qemu:///system net-define Whonix_internal*.xml
+
+2. Activate the virtual networks.
+
+sudo virsh -c qemu:///system net-autostart Whonix-External
+
+sudo virsh -c qemu:///system net-start Whonix-External
+
+sudo virsh -c qemu:///system net-autostart Whonix-Internal
+
+sudo virsh -c qemu:///system net-start Whonix-Internal
+
+3. Import the Whonix ™ Gateway and Workstation images.
+
+sudo virsh -c qemu:///system define Whonix-Gateway*.xml
+
+sudo virsh -c qemu:///system define Whonix-Workstation*.xml
+
+Moving Whonix ™ Image Files
+
+The XML files are configured to point to the default storage location of /var/lib/libvirt/images. The following steps move the images there so the machines can boot.
+
+Note: Changing the default location may cause conflicts with SELinux, which will prevent the machines from booting.
+
+It is recommended to move the image files instead of copying them.
+
+sudo mv Whonix-Gateway*.qcow2 /var/lib/libvirt/images/Whonix-Gateway.qcow2
+
+sudo mv Whonix-Workstation*.qcow2 /var/lib/libvirt/images/Whonix-Workstation.qcow2 
